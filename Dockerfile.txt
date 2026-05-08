@@ -1,0 +1,15 @@
+FROM python:3.12
+
+WORKDIR /code
+
+# copy the dependencies file to the working directory
+COPY requirement.txt .
+
+# install dependencies
+RUN pip install -r requirement.txt
+
+COPY . .
+
+
+# command to run on container start
+CMD [ "python", "gcexporter.py" ]
